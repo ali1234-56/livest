@@ -5,6 +5,7 @@ import { Thumbnail, ThumbnailSkeleton } from "@/components/thumbnail";
 import { Skeleton } from "@/components/ui/skeleton";
 import { LiveBadge } from "@/components/live-badge";
 import { UserAvatar, UserAvatarSkeleton } from "@/components/user-avatar";
+import { VerifiedMark } from "@/components/verified-mark";
 
 interface ResultCardProps {
   data: {
@@ -34,9 +35,15 @@ export const ResultCard = ({
             isLive={data.isLive}
           />
           <div className="flex flex-col text-sm overflow-hidden">
-            <p className="truncate font-semibold hover:text-blue-500">
-              {data.name}
-            </p>
+            <div className="flex">
+              <p className="truncate font-semibold hover:text-blue-500 pr-1">
+                {data.name} 
+              </p>
+              <div className="pt-0.5">
+                <VerifiedMark />
+              </div>
+            </div>
+              
             <p className="text-muted-foreground">
               {data.user.username}
             </p>

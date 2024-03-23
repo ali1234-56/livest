@@ -8,13 +8,15 @@ const font = Poppins({
   weight: ["200", "300", "400", "500", "600", "700", "800"],
 });
 
+// 登入頁面的 logo
+
 export const Logo = () => {
   return (
     <div className="flex flex-col items-center gap-y-4">
       <div className="bg-white rounded-full p-1">
         <Image
-          src="/spooky.svg"
-          alt="Gamehub"
+          src="/gamepad-svgrepo-com.svg"
+          alt="Wegame"
           height="80"
           width="80"
         />
@@ -24,10 +26,7 @@ export const Logo = () => {
         font.className,
       )}>
         <p className="text-xl font-semibold">
-          Gamehub
-        </p>
-        <p className="text-sm text-muted-foreground">
-          Let&apos;s play
+          Wegame
         </p>
       </div>
     </div>
