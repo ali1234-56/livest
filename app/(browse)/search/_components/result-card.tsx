@@ -22,8 +22,8 @@ export const ResultCard = ({
 }: ResultCardProps) => {
   return (
     <Link href={`/${data.user.username}`}>
-      <div className="w-full flex gap-x-4">
-        <div className="relative h-[9rem] w-[16rem]">
+      <div className="w-full flex gap-x-4 ">
+        <div className=" border rounded-md relative h-[9rem] w-[15.8rem]">
           <Thumbnail
             src={data.thumbnailUrl}
             fallback={data.user.imageUrl}

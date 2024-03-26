@@ -40,7 +40,7 @@ export const Video = ({
   };
 
   return (
-    <div className="aspect-video border-b group relative">
+    <div className=" aspect-video border-b group relative">
       {content}
     </div>
   );

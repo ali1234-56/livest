@@ -61,4 +61,5 @@ module.exports = withUt({
     },
   },
   plugins: [require("tailwindcss-animate")],
+  
 });

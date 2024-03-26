@@ -5,6 +5,7 @@ import { getSelfByUsername } from "@/lib/auth-service";
 import { Navbar } from "./_components/navbar";
 import { Sidebar } from "./_components/sidebar";
 import { Container } from "./_components/container";
+import { ThemeProvider } from "@/components/theme-provider";
 
 interface CreatorLayoutProps {
   params: { username: string };
@@ -22,7 +23,12 @@ const CreatorLayout = async ({
   }
 
   return ( 
-    <>
+    <ThemeProvider
+      attribute="class"
+      defaultTheme="system"
+      enableSystem
+      disableTransitionOnChange
+    >
       <Navbar />
       <div className="flex h-full pt-20">
         <Sidebar />
@@ -30,7 +36,7 @@ const CreatorLayout = async ({
           {children}
         </Container>
       </div>
-    </>
+    </ThemeProvider>
   );
 }
  

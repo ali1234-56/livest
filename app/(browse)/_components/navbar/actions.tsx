@@ -7,6 +7,7 @@ import {
 } from "@clerk/nextjs";
 
 import { Button } from "@/components/ui/button";
+import { ModeToggle } from "@/components/theme-toggle";
 
 export const Actions = async () => {
   const user = await currentUser();
@@ -22,6 +23,7 @@ export const Actions = async () => {
       )}
       {!!user && (
         <div className="flex items-center gap-x-4">
+          <ModeToggle/>
           <Button
             size="sm"
             variant="ghost"
@@ -38,6 +40,7 @@ export const Actions = async () => {
           <UserButton
             afterSignOutUrl="/"
           />
+          
         </div>
       )}
     </div>

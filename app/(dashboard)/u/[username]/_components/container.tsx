@@ -29,8 +29,8 @@ export const Container = ({
   }, [matches, onCollapse, onExpand]);
 
   return (
-    <div className={cn(
-      "flex-1",
+    <div className= {cn(
+      "flex-1 bg-background",
       collapsed ? "ml-[70px]" : "ml-[70px] lg:ml-60"
     )}>
       {children}
