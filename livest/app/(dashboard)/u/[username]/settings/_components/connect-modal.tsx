@@ -53,12 +53,12 @@ export const ConnectModal = () => {
     <Dialog>
       <DialogTrigger asChild>
         <Button variant="primary">
-          Generate connection
+          Generate 
         </Button>
       </DialogTrigger>
       <DialogContent>
         <DialogHeader>
-          <DialogTitle>Generate connection</DialogTitle>
+          <DialogTitle>Generate </DialogTitle>
         </DialogHeader>
         <Select
           disabled={isPending}

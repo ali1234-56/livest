@@ -67,7 +67,7 @@ const KeysPage = async () => {
 
         <ToggleCard
           field="isChatFollowersOnly"
-          label=" following to open chat"
+          label=" Following to open chat"
           value={stream.isChatFollowersOnly}
         />
 
