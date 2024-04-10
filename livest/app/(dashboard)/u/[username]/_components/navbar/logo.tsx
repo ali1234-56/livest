@@ -28,7 +28,7 @@ export const Logo = () => {
           font.className
         )}>
           <p className="text-lg font-semibold">
-            Wegame
+            WeStreaam
           </p>
           <p className="text-xs text-muted-foreground">
             Creator tool

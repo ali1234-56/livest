@@ -14,6 +14,7 @@ interface ResultCardProps {
     name: string;
     thumbnailUrl: string | null;
   };
+  
 };
 
 export const ResultCard = ({

@@ -3,13 +3,16 @@ import { Skeleton } from "@/components/ui/skeleton";
 
 import { ResultCard, ResultCardSkeleton } from "./result-card";
 
+
 export const Results = async () => {
+
+
   const data = await getStreams();
 
   return (
     <div>
       <h2 className="text-lg font-semibold mb-4">
-        Starting Watching
+        Starting Watching !
       </h2>
       {data.length === 0 && (
         <div className="text-muted-foreground text-sm">
@@ -21,6 +24,7 @@ export const Results = async () => {
           <ResultCard
             key={result.id}
             data={result}
+            
           />
         ))}
       </div>

@@ -1,6 +1,6 @@
 import { Skeleton } from "@/components/ui/skeleton";
 
-import { ToggleCardSkeleton } from "./_components/toggle-card";
+import { ToggleCardSkeleton } from "./chat_components/toggle-card";
 
 const ChatLoading = () => {
   return ( 

@@ -3,10 +3,9 @@
 import { useUser } from "@clerk/nextjs";
 import { usePathname } from "next/navigation";
 import { 
-  Fullscreen,
-  KeyRound,
-  MessageSquare,
-  Users,
+  Radio,
+  Settings,
+
 } from "lucide-react";
 
 import { NavItem, NavItemSkeleton } from "./nav-item";
@@ -19,23 +18,15 @@ export const Navigation = () => {
     {
       label: "Stream",
       href: `/u/${user?.username}`,
-      icon: Fullscreen,
+      icon: Radio,
     },
     {
-      label: "Keys",
-      href: `/u/${user?.username}/keys`,
-      icon: KeyRound,
+      label: "settings",
+      href: `/u/${user?.username}/settings`,
+      icon: Settings,
     },
-    {
-      label: "Chat",
-      href: `/u/${user?.username}/chat`,
-      icon: MessageSquare,
-    },
-    {
-      label: "Community",
-      href: `/u/${user?.username}/community`,
-      icon: Users,
-    },
+    
+
   ];
 
   if (!user?.username) {
