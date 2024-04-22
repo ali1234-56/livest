@@ -14,7 +14,7 @@ import { Chat, ChatSkeleton } from "./chat";
 import { Video, VideoSkeleton } from "./video";
 import { Header, HeaderSkeleton } from "./header";
 
-import{ Whiteboard } from "../white-board/page"
+
 
 type CustomStream = {
   id: string;
@@ -77,11 +77,6 @@ export const StreamPlayer = ({
             hostName={user.username}
             hostIdentity={user.id}
           />
-          <Whiteboard
-            hostIdentity={user.id}
-            viewerIdentity={identity}
-            
-            />
           <Header
             hostName={user.username}
             hostIdentity={user.id}
