@@ -57,12 +57,12 @@ export const Actions = ({
   }
 
   return (
+
     <Button
       disabled={isPending || isHost}
       onClick={toggleFollow}
       variant="primary"
       size="sm"
-      className="w-full lg:w-auto"
     >
       <Heart className={cn(
         "h-4 w-4 mr-2",

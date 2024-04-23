@@ -14,6 +14,8 @@ import { Chat, ChatSkeleton } from "./chat";
 import { Video, VideoSkeleton } from "./video";
 import { Header, HeaderSkeleton } from "./header";
 
+import{ Counter } from "./counter";
+
 
 
 type CustomStream = {
@@ -77,6 +79,7 @@ export const StreamPlayer = ({
             hostName={user.username}
             hostIdentity={user.id}
           />
+          <Counter/>
           <Header
             hostName={user.username}
             hostIdentity={user.id}

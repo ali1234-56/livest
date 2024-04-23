@@ -11,6 +11,7 @@ import { VerifiedMark } from "@/components/verified-mark";
 import { UserAvatar, UserAvatarSkeleton } from "@/components/user-avatar";
 
 import { Actions, ActionsSkeleton } from "./actions";
+import { Exchange } from "./exchange";
 
 interface HeaderProps {
   imageUrl: string;
@@ -72,11 +73,16 @@ export const Header = ({
           )}
         </div>
       </div>
-      <Actions
-        isFollowing={isFollowing}
-        hostIdentity={hostIdentity}
-        isHost={isHost}
-      />
+      <div className="flex content-center ">
+        <Exchange />
+        <div className="w-2"></div>
+        <Actions
+          isFollowing={isFollowing}
+          hostIdentity={hostIdentity}
+          isHost={isHost}
+        />
+      </div>
+          
     </div>
   );
 };
