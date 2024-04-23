@@ -22,6 +22,8 @@ interface HeaderProps {
   name: string;
 };
 
+
+
 export const Header = ({
   imageUrl,
   hostName,
@@ -30,6 +32,7 @@ export const Header = ({
   isFollowing,
   name,
 }: HeaderProps) => {
+
   const participants = useParticipants();
   const participant = useRemoteParticipant(hostIdentity);
 
@@ -74,7 +77,9 @@ export const Header = ({
         </div>
       </div>
       <div className="flex content-center ">
-        <Exchange />
+        <Exchange 
+          isLive={isLive}
+        />
         <div className="w-2"></div>
         <Actions
           isFollowing={isFollowing}

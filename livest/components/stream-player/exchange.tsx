@@ -10,7 +10,15 @@ import {
     DropdownMenuTrigger,
   } from "@/components/ui/dropdown-menu";
 
-export const Exchange = () =>{
+
+interface UserAvatarProps
+{
+  isLive?: boolean;
+};
+
+export const Exchange = ({
+    isLive,
+  }: UserAvatarProps) =>{
 
     //列出該文件裡所有圖片 url
      const pink = [
@@ -34,11 +42,10 @@ export const Exchange = () =>{
 
       ];
 
-
     return(
-
         <DropdownMenu>
             <DropdownMenuTrigger >
+                {isLive && ( //判斷式後面要加(渲染內容)
                     <Button       
                         variant="primary"
                         size="sm"
@@ -47,6 +54,7 @@ export const Exchange = () =>{
                         <Gift className="h-4 w-4 mr-2"/>
                         exchange
                     </Button>
+                )}
             </DropdownMenuTrigger>
 
             <DropdownMenuContent align="end">

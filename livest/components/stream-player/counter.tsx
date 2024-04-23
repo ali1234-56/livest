@@ -6,13 +6,13 @@ export const Counter = () => {
   useEffect(() => {
     const interval = setInterval(() => {
       setCounter(prevCounter => prevCounter + 10);
-    }, 2 * 60 * 1000); 
+    }, 1 * 20 * 1000); 
 
     return () => clearInterval(interval);
   }, []);
 
   return (
-    <div className='flex'>
+    <div className='flex p-2'>
         <BadgeDollarSign/>
         <div className='pl-1'>{counter}</div>       
     </div>

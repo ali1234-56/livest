@@ -8,6 +8,7 @@ import { Button } from "@/components/ui/button";
 import { Skeleton } from "@/components/ui/skeleton";
 
 import { ChatInfo } from "./chat-info";
+import { Counter } from "./counter";
 
 interface ChatFormProps {
   onSubmit: () => void;
@@ -75,16 +76,19 @@ export const ChatForm = ({
           )}
         />
       </div>
-      <div className="ml-auto">
-        <Button
-          type="submit"
-          variant="primary"
-          size="sm"
-          disabled={isDisabled}
-        >
-          Chat
-        </Button>
+      <div className="flex ml-auto">
+
+          <Counter /> 
+          <Button
+            type="submit"
+            variant="primary"
+            size="sm"
+            disabled={isDisabled}
+          >
+            Chat
+          </Button>
       </div>
+
     </form>
   );
 };

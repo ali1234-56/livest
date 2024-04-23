@@ -79,7 +79,7 @@ export const StreamPlayer = ({
             hostName={user.username}
             hostIdentity={user.id}
           />
-          <Counter/>
+
           <Header
             hostName={user.username}
             hostIdentity={user.id}
