@@ -1,5 +1,5 @@
 import Link from "next/link";
-import { Clapperboard } from "lucide-react";
+import { Wrench } from "lucide-react";
 import { 
   SignInButton, 
   UserButton, 
@@ -31,7 +31,7 @@ export const Actions = async () => {
             asChild
           >
             <Link href={`/u/${user.username}`}>
-              <Clapperboard className="h-5 w-5 lg:mr-2" />
+              <Wrench className="h-5 w-5 lg:mr-2" />
               <span className="hidden lg:block">
                 Tool
               </span>
