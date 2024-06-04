@@ -7,6 +7,7 @@ import { isFollowingUser } from "@/lib/follow-service";
 import { isBlockedByUser } from "@/lib/block-service";
 import { StreamPlayer } from "@/components/stream-ui-components";
 import { getSelf } from "@/lib/auth-service";
+import { User2 } from "lucide-react";
 
 interface UserPageProps {
   params: {

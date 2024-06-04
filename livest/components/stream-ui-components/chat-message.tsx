@@ -41,7 +41,7 @@ const check1 = isSpecialWord(data.message);
 
   return (
     <div className="flex gap-2 p-2 rounded-md hover:bg-white/5">
-      <p className="flex items-center text-sm text-white/40">
+      <p className="flex items-center text-sm text/40">
         {format(data.timestamp, "HH:MM")}
       </p>
       <div className="flex items-center flex-wrap  gap-1 grow">

@@ -35,6 +35,7 @@ export const ChatForm = ({
 
   const [isDelayBlocked, setIsDelayBlocked] = useState(false);
 
+
   const isFollowersOnlyAndNotFollowing = isFollowersOnly && !isFollowing;
   const isDisabled = isHidden || isDelayBlocked || isFollowersOnlyAndNotFollowing;
 
@@ -85,7 +86,7 @@ export const ChatForm = ({
           value={value}
           disabled={isDisabled}
           placeholder="Send a message"
-          className={cn("border-white/10", (isFollowersOnly || isDelayed) && "rounded-t-none border-t-0")}
+          className={cn("border-white/10", (isFollowersOnly ||isDelayed) && "rounded-t-none border-t-0")}
         />
       </div>
 
@@ -94,8 +95,9 @@ export const ChatForm = ({
         <Button type="submit" variant="primary" size="sm" disabled={isDisabled}>
           Chat
         </Button>
-        <div className="pl-1">
+        <div className="pl-1" >
           <SendEmotioncons 
+            disabled={isDisabled}
             username={username} 
             onSubmit={handleEmotionconsSubmit}
           />

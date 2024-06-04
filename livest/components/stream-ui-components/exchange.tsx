@@ -14,6 +14,7 @@ import { select, storeint } from "@/actions/storeint";
 import { toast } from "sonner";
 
 interface UserAvatarProps {
+  disabled?: boolean;
   isLive?: boolean;
   username: string;
   onSubmit?: (value: string) => void; // 回調 ? 代表可選
@@ -162,7 +163,7 @@ export const Exchange = ({ isLive, username }: UserAvatarProps) => {
   );
 };
 
-export const SendEmotioncons = ({ username, onSubmit }: UserAvatarProps) => {
+export const SendEmotioncons = ({ username, onSubmit, disabled }: UserAvatarProps) => {
   const [emotionconsArray, setEmotionconsArray] = useState<string[]>([]);
 
   useEffect(() => {
@@ -190,29 +191,27 @@ export const SendEmotioncons = ({ username, onSubmit }: UserAvatarProps) => {
   }, [username]);
 
   const handleItemClick = (value: string) => {
-
     if (onSubmit) {
       onSubmit(value);
     }
-    // 確保不是 undefined
   };
 
   return (
     <DropdownMenu>
-      <DropdownMenuTrigger>
-        <Button variant="primary" size="sm">
-          <Send className="h-4 w-4 mr-2" />
-        </Button>
-      </DropdownMenuTrigger>
-
+      {!disabled && (
+        <DropdownMenuTrigger>
+          <Button variant="primary" size="sm">
+            <Send className="h-4 w-4 mr-2" />
+          </Button>
+        </DropdownMenuTrigger>
+      )}
       <DropdownMenuContent align="end">
         {emotionconsArray.length > 0 ? (
           emotionconsArray.map((image, index) => (
             index % 4 === 0 && (
               <div key={index} className="flex">
                 {emotionconsArray.slice(index, index + 4).map((image, subIndex) => (
-                  // 箭頭函數的特性之一是它們會捕獲所在上下文中的變數，並在被調用時將其傳遞給函數
-                  <DropdownMenuItem key={index + subIndex} onClick={() => handleItemClick(image)}> 
+                  <DropdownMenuItem key={index + subIndex} onClick={() => handleItemClick(image)}>
                     <Image src={image} alt="Emotioncon" height="100" width="100" />
                   </DropdownMenuItem>
                 ))}
