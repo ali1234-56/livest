@@ -12,6 +12,7 @@ import { UserAvatar, UserAvatarSkeleton } from "@/components/user-avatar";
 
 import { Actions, ActionsSkeleton } from "./actions";
 import { Exchange } from "./exchange";
+import { Following } from "@/app/(browse)/_components/sidebar/following";
 
 interface HeaderProps {
   imageUrl: string;
@@ -80,6 +81,7 @@ export const Header = ({
       </div>
       <div className="flex content-center ">
         <Exchange 
+          disabled={isFollowing}
           isLive={isLive}
           username={username}
         />

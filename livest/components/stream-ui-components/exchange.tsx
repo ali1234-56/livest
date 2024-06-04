@@ -21,7 +21,8 @@ interface UserAvatarProps {
   
 }
 
-export const Exchange = ({ isLive, username }: UserAvatarProps) => {
+export const Exchange = ({disabled, isLive, username }: UserAvatarProps) => {
+  console.log(disabled)
   const [availableOptions, setAvailableOptions] = useState({
     pink: true,
     animal: true,
@@ -94,14 +95,15 @@ export const Exchange = ({ isLive, username }: UserAvatarProps) => {
 
   return (
     <DropdownMenu>
-      <DropdownMenuTrigger>
-        {isLive && (
+
+      {(isLive && disabled) && (
+        <DropdownMenuTrigger>
           <Button variant="primary" size="sm" className="">
             <Gift className="h-4 w-4 mr-2" />
             exchange
           </Button>
-        )}
-      </DropdownMenuTrigger>
+        </DropdownMenuTrigger>
+      )}
 
       <DropdownMenuContent align="end">
         {availableOptions.pink && (
@@ -164,6 +166,7 @@ export const Exchange = ({ isLive, username }: UserAvatarProps) => {
 };
 
 export const SendEmotioncons = ({ username, onSubmit, disabled }: UserAvatarProps) => {
+
   const [emotionconsArray, setEmotionconsArray] = useState<string[]>([]);
 
   useEffect(() => {

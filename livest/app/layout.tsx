@@ -5,7 +5,6 @@ import { Inter } from 'next/font/google'
 import { Toaster } from 'sonner';
 import './globals.css'
 import { Analytics } from "@vercel/analytics/react";
-import { ThemeProvider } from '@/components/theme-provider';
 import { SpeedInsights } from "@vercel/speed-insights/next"
 
 import { PipProvider } from '@/components/stream-ui-components/pipContext';
@@ -32,6 +31,9 @@ export default function RootLayout({
               <VideoPortal /> 
 
             </PipProvider>
+            <Analytics/>
+            <SpeedInsights/>
+
         </body>
       </html>
     </ClerkProvider>
