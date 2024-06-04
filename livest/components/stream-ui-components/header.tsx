@@ -20,6 +20,7 @@ interface HeaderProps {
   viewerIdentity: string;
   isFollowing: boolean;
   name: string;
+  username: string;
 };
 
 
@@ -31,6 +32,7 @@ export const Header = ({
   viewerIdentity,
   isFollowing,
   name,
+  username
 }: HeaderProps) => {
 
   const participants = useParticipants();
@@ -79,12 +81,14 @@ export const Header = ({
       <div className="flex content-center ">
         <Exchange 
           isLive={isLive}
+          username={username}
         />
         <div className="w-2"></div>
         <Actions
           isFollowing={isFollowing}
           hostIdentity={hostIdentity}
           isHost={isHost}
+          username={username}
         />
       </div>
           

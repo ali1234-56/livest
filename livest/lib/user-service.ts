@@ -10,6 +10,7 @@ export const getUserByUsername = async (username: string) => {
       externalUserId: true,
       username: true,
       bio: true,
+      counter: true,
       imageUrl: true,
       stream: {
         select: {
@@ -43,3 +44,5 @@ export const getUserById = async (id: string) => {
 
   return user;
 };
+
+

@@ -18,6 +18,7 @@ const CreatorLayout = async ({
 }: CreatorLayoutProps) => {
   const self = await getSelfByUsername(params.username);
 
+
   if (!self) {
     redirect("/");
   }

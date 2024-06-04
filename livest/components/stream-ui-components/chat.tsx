@@ -15,6 +15,7 @@ import { ChatForm, ChatFormSkeleton } from "./chat-form";
 import { ChatList, ChatListSkeleton } from "./chat-list";
 import { ChatHeader, ChatHeaderSkeleton } from "./chat-header";
 import { ChatCommunity } from "./chat-community";
+import { hostname } from "os";
 
 interface ChatProps {
   hostName: string;
@@ -24,6 +25,7 @@ interface ChatProps {
   isChatEnabled: boolean;
   isChatDelayed: boolean;
   isChatFollowersOnly: boolean;
+  counter: number
 };
 
 export const Chat = ({
@@ -33,8 +35,10 @@ export const Chat = ({
   isFollowing,
   isChatEnabled,
   isChatDelayed,
-  isChatFollowersOnly
+  isChatFollowersOnly,
+  counter
 }: ChatProps) => {
+
   const matches = useMediaQuery('(max-width: 1024px)');
   const { variant, onExpand } = useChatSidebar((state) => state);
   const connectionState = useConnectionState();
@@ -57,9 +61,12 @@ export const Chat = ({
     return messages.sort((a, b) => b.timestamp - a.timestamp);
   }, [messages]);
 
-  const onSubmit = () => {
-    if (!send) return;
 
+  // 可能是類型不同會導致傳來的參數變空值
+  
+  const onSubmit = ( value: string ) => {
+
+    if (!send) return;
     send(value);
     setValue("");
   };
@@ -85,6 +92,9 @@ export const Chat = ({
             isFollowersOnly={isChatFollowersOnly}
             isDelayed={isChatDelayed}
             isFollowing={isFollowing}
+            username={hostName}
+            counter={counter}
+            
           />
         </>
       )}

@@ -14,9 +14,6 @@ import { Chat, ChatSkeleton } from "./chat";
 import { Video, VideoSkeleton } from "./video";
 import { Header, HeaderSkeleton } from "./header";
 
-import{ Counter } from "./counter";
-
-
 
 type CustomStream = {
   id: string;
@@ -31,6 +28,7 @@ type CustomStream = {
 type CustomUser = {
   id: string;
   username: string;
+  counter: number
   bio: string | null;
   stream: CustomStream | null;
   imageUrl: string;
@@ -38,16 +36,20 @@ type CustomUser = {
 };
 
 interface StreamPlayerProps {
+  user2: CustomUser;
   user: CustomUser;
   stream: CustomStream;
   isFollowing: boolean;
 }
 
 export const StreamPlayer = ({
+  user2,
   user,
   stream,
   isFollowing
 }: StreamPlayerProps) => {
+
+
   const {
     token,
     name,
@@ -87,6 +89,7 @@ export const StreamPlayer = ({
             imageUrl={user.imageUrl}
             isFollowing={isFollowing}
             name={stream.name}
+            username={user2.username}
           />
           <InfoCard
             hostIdentity={user.id}
@@ -95,7 +98,7 @@ export const StreamPlayer = ({
             thumbnailUrl={stream.thumbnailUrl}
           />
           <AboutCard
-            hostName={user.username}
+            hostName={user2.username}
             hostIdentity={user.id}
             viewerIdentity={identity}
             bio={user.bio}
@@ -110,12 +113,13 @@ export const StreamPlayer = ({
         >
           <Chat
             viewerName={name}
-            hostName={user.username}
+            hostName={user2.username}
             hostIdentity={user.id}
             isFollowing={isFollowing}
             isChatEnabled={stream.isChatEnabled}
             isChatDelayed={stream.isChatDelayed}
             isChatFollowersOnly={stream.isChatFollowersOnly}
+            counter = {user2.counter}
           />
         </div>
       </LiveKitRoom>

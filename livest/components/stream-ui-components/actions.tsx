@@ -10,17 +10,20 @@ import { cn } from "@/lib/utils";
 import { Button } from "@/components/ui/button";
 import { Skeleton } from "@/components/ui/skeleton";
 import { onFollow, onUnfollow } from "@/actions/follow";
+import { storeint,select } from "@/actions/storeint"; 
 
 interface ActionsProps {
   hostIdentity: string;
   isFollowing: boolean;
   isHost: boolean;
+  username: string;
 };
 
 export const Actions = ({
   hostIdentity,
   isFollowing,
   isHost,
+  username
 }: ActionsProps) => {
   const [isPending, startTransition] = useTransition();
   const router = useRouter();
@@ -42,19 +45,57 @@ export const Actions = ({
     });
   }
 
-  const toggleFollow = () => {
-    if (!userId) {
-      return router.push("/sign-in");
-    }
+  const toggleFollow = async () => {
+    startTransition(() => {
+      if (!userId) {
+        return router.push("/sign-in");
+      }
+  
+      if (isHost) return;
+  
+      if (isFollowing) { 
 
-    if (isHost) return;
+        try {
+          select(username).then(async (counter) => {
+            const counterNumber = counter?.counter;
+            if (counterNumber !== undefined) {
+              const newCounter = counterNumber - 300;
+              await storeint(username, newCounter);
+              window.location.reload();
+              
+            }
+          });
 
-    if (isFollowing) {
-      handleUnfollow();
-    } else {
-      handleFollow();
-    }
-  }
+          handleUnfollow();
+
+        } catch (error) {
+          console.error("Error fetching counter:", error);
+        }
+
+      } 
+      else {
+        
+        try {
+          select(username).then(async (counter) => {
+            const counterNumber = counter?.counter;
+            if (counterNumber !== undefined) {
+              const newCounter = counterNumber + 300;
+              await storeint(username, newCounter);
+              window.location.reload();
+              
+            }
+          });
+          
+          handleFollow();
+
+        } catch (error) {
+          console.error("Error fetching counter:", error);
+        }
+      }
+    });
+  };
+  
+  
 
   return (
 
